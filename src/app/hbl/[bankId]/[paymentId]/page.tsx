@@ -1,18 +1,18 @@
 
 interface IProps {
-    params: {
+    params: Promise<{
         bankId: string;
         paymentId: string;
-    }
-    searchParams: {
-        data: string
-    }
+    }>;
+    searchParams: Promise<{
+        data: string;
+    }>;
 }
 
 
-export default function HBLGatewayPage(props: IProps) {
-    const { bankId, paymentId } = props.params;
-    const { data } = props.searchParams;
+export default async function HBLGatewayPage(props: IProps) {
+    const { bankId, paymentId } = await props.params;
+    const { data } = await props.searchParams;
 
     return <div>
         <h1>HBL</h1>
