@@ -8,7 +8,9 @@ interface IProduct {
 }
 
 async function fetchProducts() {
-    const res = await fetch('https://dummyjson.com/products');
+    const res = await fetch('https://dummyjson.com/products', {
+        cache: 'force-cache'
+    });
     const data = await res.json();
     return data.products as IProduct[];
 }
@@ -18,9 +20,7 @@ export default async function Page() {
     data = await fetchProducts();
 
     return <div>
-        <h1>Products Listing</h1>
-        {/* <ul>{data && data?.map(p => <li key={p.id}>{p.title}</li>)}</ul> */}
-        <ProductCardClient name="Bottle"></ProductCardClient>
-        <ProductCardServer name="Bottle Server"></ProductCardServer>
+        <h1>Products Listing in ISR</h1>
+        <ul>{data && data?.map(p => <li key={p.id}>{p.title}</li>)}</ul>
     </div>
 }

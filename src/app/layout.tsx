@@ -29,6 +29,8 @@ export default function RootLayout({
         <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px', backgroundColor: 'blue' }}>
           <Link href={'products-client'}>Client</Link>
           <Link href={'products-server'}>Server</Link>
+          <Link href={'products-ssg'}>SSG</Link>
+          <Link href={'product-isr'}>ISR</Link>
         </div>
         {children}
       </body>
