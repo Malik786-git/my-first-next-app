@@ -3,11 +3,11 @@ interface IUsers {
     id: string;
     name: string;
 }
-export const  revalidate = 120;
+// export const revalidate = 120;
 
 async function fetchProducts() {
     const res = await fetch('https://devtrio-server.vercel.app/api/contact/all', {
-        // cache: 'force-cache',
+        cache: 'force-cache',
         // next:{revalidate: 60},
         method: 'POST',
         headers: {
