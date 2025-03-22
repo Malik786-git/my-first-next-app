@@ -30,7 +30,7 @@ export default function RootLayout({
           <Link href={'products-client'}>Client</Link>
           <Link href={'users-server'}>Server</Link>
           <Link href={'users-ssg'}>SSG</Link>
-          <Link href={'user-isr'}>ISR</Link>
+          <Link href={'users-isr'}>ISR</Link>
         </div>
         {children}
       </body>
