@@ -7,7 +7,7 @@ interface IUsers {
 async function fetchProducts() {
     const res = await fetch('https://devtrio-server.vercel.app/api/contact/all', {
         method: 'POST',
-        // cache: 'no-store',
+        cache: 'no-store',
         headers: {
             'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdkNzQ0ODEyOWEzNDE2ZGU3OGUxNjNiIn0sImlhdCI6MTc0MjY3NTg4NiwiZXhwIjo0ODY2ODc4Mjg2fQ.xMyWzH0LY727qVM-10V1rFns7gErBxVreoiRFQhxJ6Y',
             'content-type': 'application/json',
