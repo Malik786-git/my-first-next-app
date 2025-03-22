@@ -28,9 +28,9 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px', backgroundColor: 'blue' }}>
           <Link href={'products-client'}>Client</Link>
-          <Link href={'products-server'}>Server</Link>
-          <Link href={'products-ssg'}>SSG</Link>
-          <Link href={'product-isr'}>ISR</Link>
+          <Link href={'users-server'}>Server</Link>
+          <Link href={'users-ssg'}>SSG</Link>
+          <Link href={'user-isr'}>ISR</Link>
         </div>
         {children}
       </body>
