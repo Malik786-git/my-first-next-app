@@ -1,5 +1,3 @@
-import ProductCardClient from "../components/clients/product-card";
-import ProductCardServer from "../components/server/product-card-server";
 
 interface IUsers {
     id: string;
@@ -9,7 +7,8 @@ export const  revalidate = 120;
 
 async function fetchProducts() {
     const res = await fetch('https://devtrio-server.vercel.app/api/contact/all', {
-        cache: 'force-cache',
+        // cache: 'force-cache',
+        // next:{revalidate: 60},
         method: 'POST',
         headers: {
             'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdkNzQ0ODEyOWEzNDE2ZGU3OGUxNjNiIn0sImlhdCI6MTc0MjY3NTg4NiwiZXhwIjo0ODY2ODc4Mjg2fQ.xMyWzH0LY727qVM-10V1rFns7gErBxVreoiRFQhxJ6Y',
