@@ -5,6 +5,7 @@ interface IUsers {
     id: string;
     name: string;
 }
+export const  revalidate = 120;
 
 async function fetchProducts() {
     const res = await fetch('https://devtrio-server.vercel.app/api/contact/all', {
