@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import ProductCardClient from "../components/clients/product-card";
+import ProductCardServer from "../components/server/product-card-server";
 interface IProduct {
     id: string;
     title: string;
@@ -24,7 +26,9 @@ export default function Page() {
     return <div>
         <h1>Products Listing</h1>
         <ul>
-            {data && data.map(p => <li key={p.id}>{p.title}</li>)}
+            {/* {data && data.map(p => <li key={p.id}>{p.title}</li>)} */}
+            <ProductCardClient name="Bottle"></ProductCardClient>
+            <ProductCardServer name="Bottle Server"></ProductCardServer>
         </ul>
     </div>
 }
