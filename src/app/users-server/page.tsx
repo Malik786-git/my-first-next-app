@@ -4,10 +4,11 @@ interface IUsers {
     name: string;
 }
 
+export const dynamic = 'force-dynamic' // make it  ssr else its ssr but behaves like ssg coz it  not a dynamic api or  route
 async function fetchProducts() {
     const res = await fetch('https://devtrio-server.vercel.app/api/contact/all', {
         method: 'POST',
-        cache: 'no-store',
+        cache: 'no-store',  // make it  ssr else its ssr but behaves like ssg coz it  not a dynamic api or  route
         headers: {
             'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdkNzQ0ODEyOWEzNDE2ZGU3OGUxNjNiIn0sImlhdCI6MTc0MjY3NTg4NiwiZXhwIjo0ODY2ODc4Mjg2fQ.xMyWzH0LY727qVM-10V1rFns7gErBxVreoiRFQhxJ6Y',
             'content-type': 'application/json',
