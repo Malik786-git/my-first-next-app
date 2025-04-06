@@ -2,10 +2,11 @@ interface IBlog {
     id: string;
     title: string;
 }
-
+// export const revalidate = 60;
 async function fetchBlogs() {
     const res = await fetch("https://67f2ae93ec56ec1a36d3e03f.mockapi.io/blog", {
-        cache: 'force-cache', // make it ssg
+        cache: 'force-cache',
+        next: { revalidate: 60 },
     });
     const data = await res.json();
     return data;
