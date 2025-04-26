@@ -28,6 +28,8 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px', backgroundColor: 'blue' }}>
           <Link href={'/products'}>Products</Link>
+          <Link href={'/checkout?token=wersadfasdr23423ssdfsdfssdfsdfsadf23423xxfsdsere'}>Checkout</Link>
+          <Link href={'/merchant?token=wersadfasdr23423ssdfsdfssdfsdfsadf23423xxfsdsere'}>Merchant</Link>
         </div>
         {children}
       </body>
