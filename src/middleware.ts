@@ -1,40 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
-    // console.log(request.nextUrl.pathname, 'request', request.url);
+    console.log(request.nextUrl.pathname, 'middle request');
 
-    const { searchParams } = new URL(request.url);
-    const token = searchParams.get('token');
+    // real world example: check if user is authenticated
+    // let isAuthenticated = request.cookies.get('session-token'); // replace with actual authentication check
 
-    // Real world scenario, you would get the token from the cookies or headers
-    // const auth_token = request.cookies.get('session-token')
-    console.log(request.headers, 'request headers');
+    //    test example: check if user is authenticated
+    let { searchParams } = new URL(request.url);
+    let isAuthenticated = searchParams.get('token');
 
-    const { pathname } = request.nextUrl;
 
-    // without matcher...
-    // if (!token && (pathname == '/checkout' || pathname == '/merchant')) {
+    // const { pathname } = request.nextUrl;
+    // if (!isAuthenticated && (pathname === '/checkout' || pathname === '/merchant')) {
     //     return NextResponse.redirect(new URL('/login', request.url));
     // }
-    // with matcher...
-    if (!token) {
+    // else {
+    //     return NextResponse.next();
+    // }
+
+    // with matchers
+    if (!isAuthenticated) {
         return NextResponse.redirect(new URL('/login', request.url));
     }
-
 }
 
 
 export const config = {
     matcher: [
-        /*
-         * Match all request paths except:
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico (favicon file)
-         * - public folder
-         */
-        // "/((?!_next/static|_next/image|favicon.ico|public/).*)",
-        "/merchant:path*",
-        "/checkout:path*",
+        // '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+        '/merchant:path*',
+        '/checkout:path*',
     ],
-};
+}

@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Playwrite_AR } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.scss";
 import Link from "next/link";
-import { appLocalFont } from "./app-font";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
-const PlayWrite = Playwrite_AR({
-  variable: "--font-play-write",
-});
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,11 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${PlayWrite.variable} ${geistSans.className} ${appLocalFont.variable}`}>
+      <body className={`${geistSans.className}`}>
         <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px', backgroundColor: 'blue' }}>
           <Link href={'/products'}>Products</Link>
-          <Link href={'/checkout?token=wersadfasdr23423ssdfsdfssdfsdfsadf23423xxfsdsere'}>Checkout</Link>
-          <Link href={'/merchant?token=wersadfasdr23423ssdfsdfssdfsdfsadf23423xxfsdsere'}>Merchant</Link>
+          <Link href={'/checkout?token=sdfsadf34ewfef234defe3242srsdfsd'}>Checkout</Link>
+          <Link href={'/merchant'}>Merchant</Link>
         </div>
         {children}
       </body>
