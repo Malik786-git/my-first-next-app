@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 interface IBlogModel {
-    _id?: mongoose.Types.ObjectId;
+    _id: mongoose.Types.ObjectId;
     title: string;
     content: string;
-    createdAt?: Date;
-    updateAt?: Date;
+    createAt: Date;
+    updateAt: Date;
 }
 
 const blogSchema = new mongoose.Schema<IBlogModel>({
@@ -13,5 +13,5 @@ const blogSchema = new mongoose.Schema<IBlogModel>({
     content: { type: String, required: true },
 }, { timestamps: true });
 
-const Blog = mongoose.models?.Blog || mongoose.model<IBlogModel>('Blog', blogSchema);
+const Blog = mongoose.models.Blog || mongoose.model<IBlogModel>('Blog', blogSchema);
 export default Blog;
