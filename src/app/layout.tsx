@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Playwrite_AR } from "next/font/google";
 import "./globals.scss";
 import Link from "next/link";
+import { appLocalFont } from "./app-font";
 
+const playWriteFont = Playwrite_AR({
+  variable: "--font-play-write",
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.className}`}>
+      <body className={`${playWriteFont.variable}  ${geistSans.className} ${appLocalFont.variable}`}>
         <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px', backgroundColor: 'blue' }}>
           <Link href={'/products'}>Products</Link>
           <Link href={'/checkout?token=sdfsadf34ewfef234defe3242srsdfsd'}>Checkout</Link>
