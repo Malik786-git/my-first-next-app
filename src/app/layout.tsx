@@ -29,6 +29,7 @@ export default function RootLayout({
           <Link href={'/products'}>Products</Link>
           <Link href={'/checkout?token=sdfsadf34ewfef234defe3242srsdfsd'}>Checkout</Link>
           <Link href={'/merchant'}>Merchant</Link>
+          <Link href={'/blogs'}>Blogs</Link>
         </div>
         {children}
       </body>
