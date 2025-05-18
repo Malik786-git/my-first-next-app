@@ -3,7 +3,7 @@ import BlogDetail from "./blog-detail";
 
 export async function generateStaticParams() {
     if (Constants.PROD_EVN) {
-        const blogs = await fetch(`${Constants.PROD_BASE_URL}/api/blog/all`, { cache: "force-cache" }).then((res) => res.json());
+        const blogs = await fetch(`/api/blog/all`, { cache: "force-cache" }).then((res) => res.json());
         return blogs?.data?.map((b: any) => ({
             id: b._id,
         })) ?? []
