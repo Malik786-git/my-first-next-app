@@ -2,6 +2,8 @@ import connectToDatabase from "@/config/db";
 import { Constants } from "../../../../constants";
 import BlogDetail from "./blog-detail";
 import Blog from "@/app/api/schema/blog.schema";
+import { getAllBlogIds } from "@/app/server/all-blogs";
+// For third party apis service
 // export async function generateStaticParams() {
 //     // const blogs = await fetch(`${Constants.PROD_BASE_URL}/api/blog/all`, { cache: "force-cache" }).then((res) => res.json());
 //     const blogs = await fetch(`${Constants.PROD_BASE_URL}/api/blog/all`, { cache: "force-cache" }).then((res) => res.json());
@@ -10,18 +12,10 @@ import Blog from "@/app/api/schema/blog.schema";
 //     })) ?? [];
 // }
 
+// For next js apis routes
 export async function generateStaticParams() {
-    try {
-        await connectToDatabase();
-        const blogs = await Blog.find({}, { _id: 1 }); // Only fetch IDs
-
-        return blogs.map((blog) => ({
-            id: blog._id.toString(),
-        }));
-    } catch (error) {
-        console.error("Error in generateStaticParams:", error);
-        return [];
-    }
+    const blogs = await getAllBlogIds();
+    return blogs.map((blog) => ({ id: blog._id.toString() }));
 }
 
 
