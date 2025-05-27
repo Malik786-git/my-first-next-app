@@ -79,7 +79,7 @@ export default function PhotoFrame() {
                         audio={false}
                         screenshotFormat="image/jpeg"
                         className={styles.webcam_preview}
-                        videoConstraints={{ facingMode: 'environment' }}
+                        videoConstraints={{ facingMode: 'user' }}
                     />
                 </div>
                 <div className={styles.controls}>
